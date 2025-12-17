@@ -18,32 +18,35 @@ function PersonalDetailsForm() {
   };
 
   return (
-    <form className="user-form">
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        value={name}
-        onChange={handleNameChange}
-      />
-      <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        value={email}
-        onChange={handleEmailChange}
-      />
-      <label for="phoneNum">Phone Number:</label>
-      <input
-        type="number"
-        id="phoneNum"
-        name="phoneNum"
-        value={phoneNum}
-        onChange={handlePhoneChange}
-      />
-    </form>
+    <div class="form-blocks">
+      <h1>Personal Details</h1>
+      <form className="user-form">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={name}
+          onChange={handleNameChange}
+        />
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <label for="phoneNum">Phone Number:</label>
+        <input
+          type="number"
+          id="phoneNum"
+          name="phoneNum"
+          value={phoneNum}
+          onChange={handlePhoneChange}
+        />
+      </form>
+    </div>
   );
 }
 
