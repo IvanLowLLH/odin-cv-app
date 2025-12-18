@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import PersonalDetailsForm from "./components/PersonalDetails";
+import ResumePreview from "./components/ResumePreview";
 
 function App() {
   const [resumeInfo, setResumeInfo] = useState({
@@ -16,7 +17,9 @@ function App() {
           setResumeInfo={setResumeInfo}
         />
       </div>
-      <div className="cv-preview"></div>
+      <div className="cv-preview">
+        <ResumePreview resumeInfo={resumeInfo} />
+      </div>
     </>
   );
 }

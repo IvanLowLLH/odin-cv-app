@@ -1,5 +1,13 @@
-body {
+#root {
     display: flex;
+    gap: 50px;
+    padding: 20px;
+}
+
+.cv-preview {
+    border: 1px solid black;
+    padding: 20px;
+    flex: 1;
 }
 
 .form-column {
