@@ -9,7 +9,7 @@ function App() {
     name: "",
     email: "",
     phoneNum: "",
-    education: {},
+    education: [],
   });
   return (
     <>
