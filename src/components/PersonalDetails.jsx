@@ -1,20 +1,6 @@
-import { useState } from "react";
-
-function PersonalDetailsForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNum, setPhoneNum] = useState("");
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePhoneChange = (event) => {
-    setPhoneNum(event.target.value);
+function PersonalDetailsForm({ resumeInfo, setResumeInfo }) {
+  const handleInputChange = (property) => (e) => {
+    setResumeInfo({ ...resumeInfo, [property]: e.target.value });
   };
 
   return (
@@ -26,24 +12,24 @@ function PersonalDetailsForm() {
           type="text"
           id="name"
           name="name"
-          value={name}
-          onChange={handleNameChange}
+          value={resumeInfo.name}
+          onChange={handleInputChange("name")}
         />
         <label for="email">Email:</label>
         <input
           type="email"
           id="email"
           name="email"
-          value={email}
-          onChange={handleEmailChange}
+          value={resumeInfo.email}
+          onChange={handleInputChange("email")}
         />
         <label for="phoneNum">Phone Number:</label>
         <input
           type="number"
           id="phoneNum"
           name="phoneNum"
-          value={phoneNum}
-          onChange={handlePhoneChange}
+          value={resumeInfo.phoneNum}
+          onChange={handleInputChange("phoneNum")}
         />
       </form>
     </div>
