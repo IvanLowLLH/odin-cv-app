@@ -26,8 +26,15 @@ function EducationDetailsForm({ resumeInfo, setResumeInfo }) {
     setResumeInfo({ ...resumeInfo, education: updatedEducation });
   };
 
+  const deleteEducation = (id) => {
+    const updatedEducation = resumeInfo.education.filter(
+      (item) => item.id !== id,
+    );
+    setResumeInfo({ ...resumeInfo, education: updatedEducation });
+  };
+
   return (
-    <div class="form-blocks">
+    <div className="form-blocks">
       <h1>Education Details</h1>
       {resumeInfo.education.map((edu) => (
         <form key={edu.id} className="user-form">
@@ -77,6 +84,11 @@ function EducationDetailsForm({ resumeInfo, setResumeInfo }) {
             value={edu.location}
             onChange={handleEducationChange(edu.id, "location")}
           />
+          <div className="card-buttons">
+            <button onClick={() => deleteEducation(edu.id)}>Delete</button>
+            <button>Edit</button>
+            <button>Save</button>
+          </div>
         </form>
       ))}
       <button onClick={addEducation}>+ Add Education</button>
