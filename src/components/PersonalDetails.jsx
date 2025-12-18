@@ -25,7 +25,7 @@ function PersonalDetailsForm({ resumeInfo, setResumeInfo }) {
         />
         <label for="phoneNum">Phone Number:</label>
         <input
-          type="number"
+          type="text"
           id="phoneNum"
           name="phoneNum"
           value={resumeInfo.phoneNum}
