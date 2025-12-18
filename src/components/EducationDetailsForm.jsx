@@ -2,10 +2,40 @@ import { useState } from "react";
 
 function EducationEntry({ edu, onSave, onDelete }) {
   const [tempEdu, setTempEdu] = useState(edu);
+  const [isEditing, setIsEditing] = useState(true);
 
   const handleChange = (propertyName) => (event) => {
     setTempEdu({ ...tempEdu, [propertyName]: event.target.value });
   };
+
+  const handleSave = () => {
+    onSave(tempEdu);
+    setIsEditing(false);
+  };
+
+  if (!isEditing) {
+    return (
+      <div className="info-summary">
+        <div className="edu-info-summary">
+          <h3>{edu.school}</h3>
+          <p>{edu.degree}</p>
+        </div>
+        <div className="summary-buttons">
+          <button type="button" onClick={() => setIsEditing(true)}>
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              onDelete(edu.id);
+            }}
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form className="user-form">
@@ -64,12 +94,7 @@ function EducationEntry({ edu, onSave, onDelete }) {
         >
           Delete
         </button>
-        <button
-          type="button"
-          onClick={() => {
-            onSave(tempEdu);
-          }}
-        >
+        <button type="button" onClick={handleSave}>
           Save
         </button>
       </div>
