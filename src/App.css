@@ -40,3 +40,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+.info-summary {
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.summary-buttons {
+    display: flex;
+    gap: 5px;
+}
