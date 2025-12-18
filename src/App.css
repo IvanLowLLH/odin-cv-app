@@ -13,6 +13,7 @@
 .form-column {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .form-blocks {
@@ -27,4 +28,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.start-end-dates {
+    display: flex;
+    gap: 5px;
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import PersonalDetailsForm from "./components/PersonalDetails";
+import PersonalDetailsForm from "./components/PersonalDetailsForm";
+import EducationDetailsForm from "./components/EducationDetailsForm";
 import ResumePreview from "./components/ResumePreview";
 
 function App() {
@@ -8,11 +9,16 @@ function App() {
     name: "",
     email: "",
     phoneNum: "",
+    education: {},
   });
   return (
     <>
       <div className="form-column">
         <PersonalDetailsForm
+          resumeInfo={resumeInfo}
+          setResumeInfo={setResumeInfo}
+        />
+        <EducationDetailsForm
           resumeInfo={resumeInfo}
           setResumeInfo={setResumeInfo}
         />
