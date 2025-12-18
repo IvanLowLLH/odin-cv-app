@@ -19,6 +19,7 @@
 .form-blocks {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px 20px;
@@ -33,4 +34,9 @@
 .start-end-dates {
     display: flex;
     gap: 5px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
 }
