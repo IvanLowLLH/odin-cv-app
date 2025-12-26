@@ -8,9 +8,17 @@ function CareerEntry({ career, onSave, onDelete }) {
       : career.experience,
   });
   const [isEditing, setIsEditing] = useState(true);
+  const isPresent = tempCareer.endDate === "Present";
 
   const handleChange = (propertyName) => (event) => {
     setTempCareer({ ...tempCareer, [propertyName]: event.target.value });
+  };
+
+  const handlePresentChange = (event) => {
+    setTempCareer({
+      ...tempCareer,
+      endDate: event.target.checked ? "Present" : "",
+    });
   };
 
   const handleSave = () => {
@@ -83,6 +91,14 @@ function CareerEntry({ career, onSave, onDelete }) {
             name="career-end"
             value={tempCareer.endDate}
             onChange={handleChange("endDate")}
+            disabled={isPresent}
+          />
+          <label htmlFor="endDate-check">Present?</label>
+          <input
+            type="checkbox"
+            id="endDate-check"
+            checked={isPresent}
+            onChange={handlePresentChange}
           />
         </div>
       </div>
