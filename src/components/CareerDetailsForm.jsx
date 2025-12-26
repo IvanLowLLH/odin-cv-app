@@ -7,6 +7,7 @@ function CareerEntry({ career, onSave, onDelete }) {
       ? career.experience.join("\n- ")
       : career.experience,
   });
+  const [isEditing, setIsEditing] = useState(true);
 
   const handleChange = (propertyName) => (event) => {
     setTempCareer({ ...tempCareer, [propertyName]: event.target.value });
@@ -18,7 +19,32 @@ function CareerEntry({ career, onSave, onDelete }) {
       .map((item) => item.trim())
       .filter((item) => item !== "");
     onSave({ ...tempCareer, experience: experienceArray });
+    setIsEditing(false);
   };
+
+  if (!isEditing) {
+    return (
+      <div className="info-summary">
+        <div className="edu-info-summary">
+          <h3>{career.companyName}</h3>
+          <p>{career.positionTitle}</p>
+        </div>
+        <div className="summary-buttons">
+          <button type="button" onClick={() => setIsEditing(true)}>
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              onDelete(career.id);
+            }}
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form className="user-form">
