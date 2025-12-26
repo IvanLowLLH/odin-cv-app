@@ -93,14 +93,14 @@ function CareerEntry({ career, onSave, onDelete }) {
             onChange={handleChange("endDate")}
             disabled={isPresent}
           />
-          <label htmlFor="endDate-check">Present?</label>
-          <input
-            type="checkbox"
-            id="endDate-check"
-            checked={isPresent}
-            onChange={handlePresentChange}
-          />
         </div>
+        <label htmlFor="endDate-check">Present?</label>
+        <input
+          type="checkbox"
+          id="endDate-check"
+          checked={isPresent}
+          onChange={handlePresentChange}
+        />
       </div>
       <label for="career-experience">
         Experiences (Separate points with a dash "-"):
