@@ -23,12 +23,21 @@
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px 20px;
+    min-width: 520px;
+    align-items: center;
+}
+
+.form-blocks > button {
+    width: 200px;
 }
 
 .user-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 0.6px solid black;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .start-end-dates {
@@ -48,6 +57,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
+    min-width: 80%;
 }
 
 .summary-buttons {
