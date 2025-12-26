@@ -3,7 +3,7 @@ import { useState } from "react";
 function EducationEntry({ edu, onSave, onDelete }) {
   const [tempEdu, setTempEdu] = useState(edu);
   const [isEditing, setIsEditing] = useState(true);
-
+  const isPresent = tempEdu.endDate === "Present";
   const handleChange = (propertyName) => (event) => {
     setTempEdu({ ...tempEdu, [propertyName]: event.target.value });
   };
@@ -11,6 +11,13 @@ function EducationEntry({ edu, onSave, onDelete }) {
   const handleSave = () => {
     onSave(tempEdu);
     setIsEditing(false);
+  };
+
+  const handlePresentChange = (event) => {
+    setTempEdu({
+      ...tempEdu,
+      endDate: event.target.checked ? "Present" : "",
+    });
   };
 
   if (!isEditing) {
@@ -74,6 +81,14 @@ function EducationEntry({ edu, onSave, onDelete }) {
             name="education-end"
             value={tempEdu.endDate}
             onChange={handleChange("endDate")}
+            disabled={isPresent}
+          />
+          <label htmlFor="endDate-check">Present?</label>
+          <input
+            type="checkbox"
+            id="endDate-check"
+            checked={isPresent}
+            onChange={handlePresentChange}
           />
         </div>
       </div>
