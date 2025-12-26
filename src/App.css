@@ -54,3 +54,14 @@
     display: flex;
     gap: 5px;
 }
+
+.experience-list {
+    margin-top: 10px;
+    padding-left: 20px; /* Adjust indent of bullets */
+    list-style-type: disc; /* Ensures standard round bullets */
+}
+
+.experience-list li {
+    margin-bottom: 5px; /* Adds space between each bullet point */
+    line-height: 1.4;
+}
