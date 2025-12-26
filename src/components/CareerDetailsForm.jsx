@@ -1,14 +1,23 @@
 import { useState } from "react";
 
 function CareerEntry({ career, onSave, onDelete }) {
-  const [tempCareer, setTempCareer] = useState(career);
+  const [tempCareer, setTempCareer] = useState({
+    ...career,
+    experience: Array.isArray(career.experience)
+      ? career.experience.join("\n- ")
+      : career.experience,
+  });
 
   const handleChange = (propertyName) => (event) => {
     setTempCareer({ ...tempCareer, [propertyName]: event.target.value });
   };
 
   const handleSave = () => {
-    onSave(tempCareer);
+    const experienceArray = tempCareer.experience
+      .split("-")
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+    onSave({ ...tempCareer, experience: experienceArray });
   };
 
   return (
@@ -51,6 +60,17 @@ function CareerEntry({ career, onSave, onDelete }) {
           />
         </div>
       </div>
+      <label for="career-experience">
+        Experiences (Separate points with a dash "-"):
+      </label>
+      <textarea
+        id="career-experience"
+        name="career-experience"
+        value={tempCareer.experience}
+        onChange={handleChange("experience")}
+        placeholder={`- Managed a team of developers\n- Optimized database queries for speed\n- Led weekly sprint meetings`}
+        rows="5"
+      />
       <div className="card-buttons">
         <button
           type="button"
