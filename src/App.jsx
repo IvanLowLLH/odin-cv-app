@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import EducationDetailsForm from "./components/EducationDetailsForm";
+import CareerDetailsForm from "./components/CareerDetailsForm";
 import ResumePreview from "./components/ResumePreview";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     email: "",
     phoneNum: "",
     education: [],
+    career: [],
   });
   return (
     <>
@@ -19,6 +21,10 @@ function App() {
           setResumeInfo={setResumeInfo}
         />
         <EducationDetailsForm
+          resumeInfo={resumeInfo}
+          setResumeInfo={setResumeInfo}
+        />
+        <CareerDetailsForm
           resumeInfo={resumeInfo}
           setResumeInfo={setResumeInfo}
         />
