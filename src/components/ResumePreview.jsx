@@ -21,6 +21,24 @@ function ResumePreview({ resumeInfo }) {
           </div>
         ))}
       </div>
+      <div className="resume-career-info-contain">
+        <h1>Experiences</h1>
+        {resumeInfo.career.map((career) => (
+          <div className="career-info" key={career.id}>
+            <h2>{career.companyName}</h2>
+            <p>{career.positionTitle}</p>
+            <p>
+              {career.startDate} - {career.endDate}
+            </p>
+            <ul className="experience-list">
+              {Array.isArray(career.experience) &&
+                career.experience.map((point, index) => (
+                  <li key={index}>{point}</li>
+                ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
